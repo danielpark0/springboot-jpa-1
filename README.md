@@ -119,3 +119,19 @@ void update(Item itemParam) {
 - 트랜잭션이 있는 서비스 계층에 식별자와 변경할 데이터를 명확하게 전달.(파라미터 or DTO)
 - 트랜잭션이 있는 서비스 계층에서 영속 상태 엔티티 조회하고, 엔티티 데이터 직접 변경
 - 트랜잭션 커밋 시점 변경감지 실행됨.
+
+
+# 실전 스프링부트 JPA2
+## 등록
+- Entity를 API 에서 사용하지 않도록 해야함.
+- API 스펙을 위한 별도의 DTO 필요.
+- Entity를 외부에 노출하면 안됨.
+- DTO에서 @NotEmpty등 Validation 체크를 해야함.
+- Entity가 바뀌어도 API spec이 바뀌지 않도록
+- entity와 presentation layer 분리
+
+> API는 꼭 Entity를 직접 사용하지 않고 별도의 DTO 사용하여 개발
+
+## 수정
+- 수정은 되도록 변경 감지 사
+- command와 query를 분리
