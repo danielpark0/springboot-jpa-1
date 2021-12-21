@@ -146,3 +146,7 @@ void update(Item itemParam) {
 > 엔티티를 직접 노출 할 때는 양방향 연관관계가 걸린 곳은 꼭 한곳을 @JsonIgnore 처리해야한다. 안그러면 양쪽을 서로 호출하면서 무한루프 생성
 > Hibernate5Module 사용하는것보다 DTO사용하는게 좋다.
 > 지연로딩을 피하기 위해 즉시 로딩을하면 성능 튜닝이 어려워짐.
+
+- v1, v2 모두 lazy loading에서 n+1 문제 발생
+- order 1 + 멤버 n + 배송 n
+- eager로 해도 해결 안되고 예측 불가
