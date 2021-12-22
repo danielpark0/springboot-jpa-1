@@ -150,3 +150,7 @@ void update(Item itemParam) {
 - v1, v2 모두 lazy loading에서 n+1 문제 발생
 - order 1 + 멤버 n + 배송 n
 - eager로 해도 해결 안되고 예측 불가
+
+*해결방법*
+- fetch join을 통해 해결할 수 있음
+- 조인을 통해 쿼리 한번에 가져옴
