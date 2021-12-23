@@ -5,6 +5,8 @@ import com.jpabook.jpashopre.domain.Order;
 import com.jpabook.jpashopre.domain.OrderStatus;
 import com.jpabook.jpashopre.repository.OrderRepository;
 import com.jpabook.jpashopre.repository.OrderSearch;
+import com.jpabook.jpashopre.repository.order.simplequery.OrderSimpleQueryDto;
+import com.jpabook.jpashopre.repository.order.simplequery.OrderSimpleQueryRepository;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +27,7 @@ import java.util.stream.Collectors;
 public class OrderSimpleApiController {
 
     private final OrderRepository orderRepository;
+    private final OrderSimpleQueryRepository orderSimpleQueryRepository;
 
     @GetMapping("/api/v1/simple-orders")
     public List<Order> ordersV1() {
@@ -49,6 +52,11 @@ public class OrderSimpleApiController {
                 .collect(Collectors.toList());
     }
 
+    @GetMapping("/api/v4/simple-orders")
+    public List<OrderSimpleQueryDto> ordersV4() {
+        return orderSimpleQueryRepository.findOrderDtos();
+    }
+
     @Data
     static class SimpleOrderDto {
         private Long orderId;
@@ -56,6 +64,7 @@ public class OrderSimpleApiController {
         private LocalDateTime orderDate;
         private OrderStatus orderStatus;
         private Address address;
+
 
         public SimpleOrderDto(Order order) {
             orderId = order.getId();
