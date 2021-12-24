@@ -1,6 +1,7 @@
 package com.jpabook.jpashopre.repository;
 
 import com.jpabook.jpashopre.domain.Order;
+import com.jpabook.jpashopre.repository.order.simplequery.OrderSimpleQueryDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
